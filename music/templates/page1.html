@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Music Genre</title>
+    {% load static %}
+    <style>
+      .button 
+      {
+        width: 100px;
+        height: 50;
+        font-size:14pt;
+      }
+      #textboxid
+      {
+          height:50px;
+          font-size:14pt;
+      }
+    </style>
+  </head>
+  <body>
+    <center><img src="{% static '1.png' %}">
+    <h1>Music Genre Identification</h1></center>
+    
+      <form method="POST" action="{% url 'detect' %}"> {% csrf_token %}
+        <table style="border-collapse: collapse; margin-left: 185px; width: 72%; font-size:x-large;"> 
+          <tr>
+            <td>Enter the file path</td>
+            <td><input id="textboxid" type="text" name="filepath" size="50"></td>
+          </tr>
+          <tr style="margin-top: 80px;">
+            <td></td>
+            <td><button class="button"> SUBMIT </button></td>
+          </tr>
+          <tr style="margin-top: 80px;">
+            <td>{{rs}}</td>
+            <td>{{result}}</td>
+          </tr>
+        </table>
+      </form> 
+
+  </body>
+</html>
+
